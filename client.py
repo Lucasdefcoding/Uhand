@@ -6,15 +6,15 @@ import requests
 #HOST = 'YOUR_SERVER_FIXED_IP'  # Replace with your server's public/fixed IP
 #PORT = 8080                    # Port matching your Flask server
 
-API_URL = "https://YOUR-RANDOM-SUBDOMAIN.trycloudflare.com/control"
+BASE_URL= "https://xxxxxxxx.trycloudflare.com/gesture"
 
 def send_gesture(gesture_num: int):
 
-    headers = {"Content-Type": "application/json"}
-    payload = {"command": gesture_num}
+    url = f"{BASE_URL}/{gesture_num}"
+
     try:
-        response = requests.post(API_URL, json=payload, timeout=5)
-        print(f"Sent Gesture #{gesture_num} | Response: {response.status_code} -> {response.json()}")
+        response = requests.post(url, timeout=5)
+        print(f"Status: {response.status_code} | Response: {response.json()}")
 
     except Exception as e:
         print(f"Failed to send signal: {e}")
