@@ -31,4 +31,4 @@ if __name__ == '__main__':
     
     for g in gestures_to_test:
         send_gesture(g)
-        time.sleep(10)  # Wait 3 seconds between gestures to allow arm movement
+        time.sleep(10)  # Wait 10 seconds between gestures to allow arm movement
